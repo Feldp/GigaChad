@@ -60,96 +60,6 @@
     .progress-shadow {
       box-shadow: rgba(56, 189, 248, 0.5) 0px 48px 100px 0px;
     }
-
-    .progress-moved .progress-bar1 {
-      width: 80%;
-      background-color: #38bdf8;
-      animation: progressAnimation1 2s;
-      animation-delay: 1s;
-    }
-
-    @keyframes progressAnimation1 {
-      0% {
-        width: 0%;
-        background-color: #6192e1;
-      }
-      100% {
-        width: 80%;
-        background-color: #38bdf8;
-      }
-    }
-
-    .progress-moved .progress-bar2 {
-      width: 42%;
-      background-color: #38bdf8;
-      animation: progressAnimation2 2s;
-      animation-delay: 1.1s;
-    }
-
-    @keyframes progressAnimation2 {
-      0% {
-        width: 0%;
-        background-color: #6192e1;
-      }
-      100% {
-        width: 42%;
-        background-color: #38bdf8;
-      }
-    }
-
-    .progress-moved .progress-bar3 {
-      width: 30%;
-      background-color: #38bdf8;
-      animation: progressAnimation3 2s;
-      animation-delay: 1.2s;
-    }
-
-    @keyframes progressAnimation3 {
-      0% {
-        width: 0%;
-        background-color: #6192e1;
-      }
-      100% {
-        width: 30%;
-        background-color: #38bdf8;
-      }
-    }
-
-    .progress-moved .progress-bar4 {
-      width: 50%;
-      background-color: #38bdf8;
-      animation: progressAnimation4 2s;
-      animation-delay: 1.4s;
-    }
-
-    @keyframes progressAnimation4 {
-      0% {
-        width: 0%;
-        background-color: #6192e1;
-      }
-      100% {
-        width: 50%;
-        background-color: #38bdf8;
-      }
-    }
-
-    .progress-moved .progress-bar5 {
-      width: 14%;
-      background-color: #38bdf8;
-      animation: progressAnimation5 2s;
-      animation-delay: 1.5s;
-    }
-
-    @keyframes progressAnimation5 {
-      0% {
-        width: 0%;
-        background-color: #6192e1;
-      }
-      100% {
-        width: 14%;
-        background-color: #38bdf8;
-      }
-    }
   </style>
 
   <body class="bg-zinc-100">
@@ -158,6 +68,7 @@
         <button
           id="back"
           class="top-0 flex flex-row items-center gap-2 p-8 py-4 rob lg:p-4"
+          onclick="prevQA()"
         >
           <i class="fa-solid fa-arrow-left"></i> <span>Back</span>
         </button>
@@ -173,7 +84,7 @@
               id="progress"
               class="text-xl font-semibold text-blue-400 lg:text-lg"
             >
-              <span id="currentQ">0</span>/35
+              <span id="currentQ">0</span>/60
             </div>
             <div id="question">
               <h2 id="question" class="text-3xl font-semibold">
@@ -292,7 +203,7 @@
         type: 1,
         question: "What best describes your online presence?",
         answers: [
-          " I am a totally passive spectator",
+          "I am a totally passive spectator",
           "I produce less content than I consume",
           "I produce as much content as I consume",
           "I produce 10 times more content than I consume",
@@ -393,7 +304,7 @@
           "More than five hours per day",
           "Two to five hours per day",
           "Two to five hours per week",
-          "Less two hour per week",
+          "Less than two hours per week",
           "Never",
         ],
       },
@@ -410,13 +321,8 @@
       },
       22: {
         type: 1,
-        question: "How would you describe your social circle?",
-        answers: [
-          "Destructive relationship",
-          "I don't have friends",
-          "Average",
-          "A highly skilled and motivated tribe that pulls me up",
-        ],
+        question: "How many languages do you speak?",
+        answers: ["None", "One", "Two", "Three or more"],
       },
       23: {
         type: 2,
@@ -433,7 +339,13 @@
         type: 1,
         question:
           "When was the last time someone told you that you make them feel safe?",
-        answers: ["Never", "Last year", "Last month", "Last week"],
+        answers: [
+          "Never",
+          "Once in my life",
+          "Last year",
+          "Last month",
+          "Last week",
+        ],
       },
       26: {
         type: 2,
@@ -452,24 +364,197 @@
         answers: ["", "", "", "", ""],
       },
       29: {
+        type: 1,
+        question: "Do you own shares or ETFs?",
+        answers: ["No", "Yes"],
+      },
+      30: {
+        type: 1,
+        question: "How do you like to shower?",
+        answers: ["In hot water", "In freezing water"],
+      },
+      31: {
+        type: 1,
+        question: "When was the last time you had an unnecessary argument?",
+        answers: ["Today", "Last week", "Last month", "Last year"],
+      },
+      32: {
+        type: 2,
+        question: "You don't like to watch anime",
+        answers: ["", "", "", "", ""],
+      },
+      33: {
+        type: 1,
+        question:
+          "When was the last time you performed a random act of kindness?",
+        answers: [
+          "Never",
+          "Once in my life",
+          "Last year",
+          "Last month",
+          "Last week",
+        ],
+      },
+      34: {
+        type: 1,
+        question: "When was the last time you lied to someone or yourself?",
+        answers: ["Today", "Last week", "Last month", "Last year", "Never"],
+      },
+      35: {
+        type: 2,
+        question: "You are able to defend yourself and those you love.",
+        answers: ["", "", "", "", ""],
+      },
+
+      36: {
+        type: 2,
+        question: "You wake up easily every morning.",
+        answers: ["", "", "", "", ""],
+      },
+
+      37: {
+        type: 1,
+        question: "How many sources of income do you have?",
+        answers: ["Zero", "One", "Two to five", "More than five"],
+      },
+
+      38: {
+        type: 1,
+        question: "Do you have a stimulating professional network?",
+        answers: ["No", "Not really", "Yes"],
+      },
+
+      39: {
+        type: 1,
+        question: "How often do you fap?",
+        answers: [
+          "Several times per day",
+          "Once per day",
+          "Two to five times a week",
+          "One time a week",
+          "Less than on time a week",
+        ],
+      },
+
+      40: {
+        type: 2,
+        question:
+          "You put into practice the majority of the information you consume",
+        answers: ["", "", "", "", ""],
+      },
+
+      41: {
+        type: 1,
+        question:
+          "When was the last time you did something detrimental to your health?",
+        answers: ["Today", "Last week", "Last month", "Last year"],
+      },
+
+      42: {
+        type: 2,
+        question: "Your body language project confidence",
+        answers: ["", "", "", "", ""],
+      },
+
+      43: {
+        type: 1,
+        question: "When was the last time you disrespected someone?",
+        answers: ["Today", "Last week", "Last month", "Last year", "Never"],
+      },
+
+      44: {
+        type: 1,
+        question: "Did you learn something today?",
+        answers: ["No", "Yes"],
+      },
+
+      45: {
+        type: 2,
+        question: "You are humble",
+        answers: ["", "", "", "", ""],
+      },
+
+      46: {
+        type: 1,
+        question:
+          "How many months of living expenses does your emergency fund cover? ",
+        answers: [
+          "Zero",
+          "One month",
+          "2 to 3 month",
+          "3 to 6 month",
+          "More than 6 months",
+        ],
+      },
+
+      47: {
+        type: 1,
+        question: "Do you own your home?",
+        answers: ["No", "Yes on credit", "Yes"],
+      },
+
+      48: {
+        type: 2,
+        question: "You don't have any addiction",
+        answers: ["", "", "", "", ""],
+      },
+
+      49: {
+        type: 1,
+        question: "What percentage of your income do you save each month?",
+        answers: [
+          "Zero %",
+          "1 to 10%",
+          "10 to 30%",
+          "30 to 50%",
+          "More than 50%",
+        ],
+      },
+
+      50: {
+        type: 2,
+        question: "You rarely have negative thoughts",
+        answers: ["", "", "", "", ""],
+      },
+
+      51: {
+        type: 1,
+        question: "Have you been vaccinated against covid-19",
+        answers: ["No", "Yes"],
+      },
+
+      52: {
         type: 2,
         question:
           "You do the hard work especially when you don't feel like it.",
         answers: ["", "", "", "", ""],
       },
-      30: {
+      53: {
+        type: 1,
+        question: "How often do you watch porn?",
+        answers: [
+          "Several times per day",
+          "Once per day",
+          "Two to five times a week",
+          "One time a week",
+          "Less than on time per week",
+          "Less than on time per month",
+          "Never",
+        ],
+      },
+      54: {
         type: 2,
         question: "You are thankful for what you have.",
         answers: ["", "", "", "", ""],
       },
-      31: {
+      55: {
         type: 2,
         question:
           "You focus on what really matters and ignore the unnecessary.",
         answers: ["", "", "", "", ""],
       },
-      32: {
-        type: 2,
+      56: {
+        type: 1,
         question: "How many books did you read last year?",
         answers: [
           "Zero",
@@ -479,25 +564,46 @@
           "More than 50 books",
         ],
       },
-      33: {
+      57: {
         type: 2,
+        question: "You rarely argue on the internet",
+        answers: ["", "", "", "", ""],
+      },
+      58: {
+        type: 1,
+        question: "How would you describe your social circle?",
+        answers: [
+          "Destructive relationship",
+          "I don't have friends",
+          "Average",
+          "A highly skilled and motivated tribe that pulls me up",
+        ],
+      },
+      59: {
+        type: 2,
+        question: "You live in a clean and organized environment",
+        answers: ["", "", "", "", ""],
+      },
+      60: {
+        type: 1,
         question: "How would you describe your ability to focus?",
         answers: [
           "Close to null",
           "Worst than average",
           "Average",
-          "Betetr than average",
+          "Better than average",
           "Flow state",
         ],
       },
     };
 
-    let res = new Array(33);
+    let res = new Array(60);
+    // res.fill(0.7);
     let curr = 0;
 
     function updateScore(pts) {
       res[curr - 1] = pts;
-      console.log(curr, res);
+      // console.log(curr, res);
     }
 
     function updateQuestion() {
@@ -559,7 +665,7 @@
 
       setTimeout(() => {
         adonisB.classList = `adonis-blue h-[${
-          100 * percentage
+          150 * percentage
         }px] w-[150px] lg:h-[${
           300 * percentage
         }px] lg:w-[300px] bg-bottom transform duration-1000 bg-[url('./adonis.png')] lg:bg-[url('./adonis-l.png')]`;
@@ -583,15 +689,70 @@
 
       incEltNbr("percentage");
       incEltNbr("mindsetP");
-      incEltNbr("fitnessP");
+      incEltNbr("disciplineP");
+      incEltNbr("healthP");
       incEltNbr("socialP");
+      incEltNbr("wealthP");
+    }
+
+    function createPorgressBar(j, p, delay) {
+      let style = document.createElement("style");
+      style.type = "text/css";
+      style.innerHTML = `.progress-moved .progress-bar${j} {
+      width: ${Math.round(p * 100)}%;
+      background-color: #38bdf8;
+      animation: progressAnimation${j} 2s;
+      animation-delay: ${1 + delay}s;
+    }
+
+    @keyframes progressAnimation${j} {
+      0% {
+        width: 0%;
+        background-color: #6192e1;
+      }
+      100% {
+        width: ${Math.round(p * 100)}%;
+        background-color: #38bdf8;
+      }
+    }`;
+      document.getElementsByTagName("head")[0].appendChild(style);
+    }
+
+    function sumArrayAtIndex(arr, indexes) {
+      let sum = 0;
+      indexes.forEach((i) => {
+        sum += res[i];
+        // console.log(res[i], sum);
+      });
+      return sum;
     }
 
     function finishTest() {
       let sum = res.reduce((partialSum, a) => partialSum + a, 0);
       let percentage = sum / res.length;
 
-      console.log(sum, res.length, "", percentage);
+      let mindsetI = [2, 3, 9, 14, 23, 27, 34, 36, 40, 44, 45, 50, 54, 55, 57];
+      let disciplineI = [
+        8, 13, 16, 18, 19, 20, 28, 30, 36, 39, 40, 52, 53, 56, 59,
+      ];
+      let healthI = [5, 7, 10, 11, 12, 35, 39, 41, 53];
+      let socialI = [1, 4, 15, 17, 24, 25, 26, 31, 33, 42, 43, 55, 58];
+      let wealthI = [6, 14, 18, 19, 22, 29, 33, 37, 38, 46, 47, 49, 56];
+
+      let mindsetP = sumArrayAtIndex(res, mindsetI) / mindsetI.length;
+      let disciplineP = sumArrayAtIndex(res, disciplineI) / disciplineI.length;
+      let healthP = sumArrayAtIndex(res, healthI) / healthI.length;
+      let socialP = sumArrayAtIndex(res, socialI) / socialI.length;
+      let wealthP = sumArrayAtIndex(res, wealthI) / wealthI.length;
+
+      createPorgressBar(1, mindsetP, 0);
+      createPorgressBar(2, disciplineP, 0.1);
+      createPorgressBar(3, healthP, 0.2);
+      createPorgressBar(4, socialP, 0.3);
+      createPorgressBar(5, wealthP, 0.4);
+
+      // console.log(mindsetP, disciplineP, healthP, socialP, wealthP);
+
       const main = document.getElementById("main");
       main.innerHTML = `<div
         class="flex flex-col justify-center mx-auto mt-12 lg:flex-row lg:gap-0 lg:w-4/5"
@@ -651,7 +812,9 @@
                 class="flex flex-row justify-between text-white cursor-default"
               >
                 <h3 class="text-xl font-medium">Mindset</h3>
-                <h4 class="py-1 font-medium"><span id="mindsetP">60</span>%</h4>
+                <h4 class="py-1 font-medium"><span id="mindsetP">${Math.round(
+                  mindsetP * 100
+                )}</span>%</h4>
               </div>
               <div class="rounded-sm progress-moved bg-zinc-900">
                 <div
@@ -664,7 +827,9 @@
                 class="flex flex-row justify-between text-white cursor-default"
               >
                 <h3 class="text-xl font-medium">Discipline</h3>
-                <h4 class="py-1 font-medium"><span id="fitnessP">52</span>%</h4>
+                <h4 class="py-1 font-medium"><span id="disciplineP">${Math.round(
+                  disciplineP * 100
+                )}</span>%</h4>
               </div>
               <div class="rounded-sm progress-moved bg-zinc-900">
                 <div
@@ -677,7 +842,9 @@
                 class="flex flex-row justify-between text-white cursor-default"
               >
                 <h3 class="py-1 text-xl font-medium">Health and Fitness</h3>
-                <h4 class="py-1 font-medium"><span id="socialP">35</span>%</h4>
+                <h4 class="py-1 font-medium"><span id="healthP">${Math.round(
+                  healthP * 100
+                )}</span>%</h4>
               </div>
               <div class="rounded-sm progress-moved bg-zinc-900">
                 <div
@@ -690,7 +857,9 @@
                 class="flex flex-row justify-between text-white cursor-default"
               >
                 <h3 class="py-1 text-xl font-medium">Interpersonal Skills</h3>
-                <h4 class="py-1 font-medium"><span id="socialP">60</span>%</h4>
+                <h4 class="py-1 font-medium"><span id="socialP">${Math.round(
+                  socialP * 100
+                )}</span>%</h4>
               </div>
               <div class="rounded-sm progress-moved bg-zinc-900">
                 <div
@@ -703,7 +872,9 @@
                 class="flex flex-row justify-between text-white cursor-default"
               >
                 <h3 class="py-1 text-xl font-medium">Wealth</h3>
-                <h4 class="py-1 font-medium"><span id="socialP">60</span>%</h4>
+                <h4 class="py-1 font-medium"><span id="wealthP">${Math.round(
+                  wealthP * 100
+                )}</span>%</h4>
               </div>
               <div class="rounded-sm progress-moved bg-zinc-900">
                 <div
@@ -730,7 +901,7 @@
 
     function nxtQA(pts) {
       curr += 1;
-      if (curr >= 32) {
+      if (curr > 60) {
         finishTest();
       } else {
         const question = document.getElementById("question");
@@ -749,7 +920,28 @@
         updateScore(pts);
       }
     }
+
+    function prevQA() {
+      if (curr > 1) {
+        curr -= 1;
+
+        const question = document.getElementById("question");
+        const answers = document.getElementById("answers");
+        const counter = document.getElementById("currentQ");
+
+        question.innerHTML = updateQuestion();
+        answers.classList.add("invisible");
+        setTimeout(() => {
+          answers.classList.remove("invisible");
+        }, 100);
+
+        answers.innerHTML = updateAnswers();
+        counter.innerText = curr.toString();
+      }
+    }
   </script>
 
   <script></script>
 </html>
+
+<!-- Cold shower, Rat race,  -->
